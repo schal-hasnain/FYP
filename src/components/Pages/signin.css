@@ -1,0 +1,82 @@
+.login {
+    width: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-top: 10%;
+    margin-bottom: 20%;
+    margin-left: 25%;
+  }
+  .loginOverlay {
+    width: 100%;
+    padding-top: 10%;
+    padding-bottom: 10%;
+    background-color: rgb(252, 251, 214);
+    justify-content: center;
+    
+  }
+  .form-login {
+    width: 50%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+  }
+  form {
+    width: 80%;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    overflow: hidden;
+    border-radius: 20px;
+  }
+  
+  form button:hover {
+    background-color: unset;
+    border: 2px solid #e49504;
+    -webkit-transition: 0.5s linear;
+    -o-transition: 0.5s linear;
+    transition: 0.5s linear;
+    color: black;
+  }
+  form a{
+      margin-left: 5%;
+  }
+  .formWord-login {
+    width: 40%;
+    padding: 4%;
+  }
+  .formWord-login input {
+    width: 100%;
+    height: 50px;
+    margin-bottom: 10%;
+    border: 0;
+    margin-top: 2%;
+    padding-left: 3%;
+    background: #ffffff;
+    -webkit-box-shadow: 0px 0px 48px 0px rgb(218, 218, 218);
+    box-shadow: 0px 0px 48px 0px rgb(218, 218, 218);
+  }
+  .loginbtn{
+    width: 150px;
+    height: 55px;
+    border: 0;
+    border-radius: 5px;
+    background-color: #001517;
+    -webkit-transition: 0.5s linear;
+    -o-transition: 0.5s linear;
+    transition: 0.5s linear;
+    color: white;
+    font-weight: bold;
+    margin-top: 10%;
+    margin-left: 20%;
+  }
+  
+  
