@@ -1,23 +1,89 @@
-import React, { Component } from "react";
+import React, { useState, useEffect } from "react";
 import "./home.css";
-import DocImage1 from "../Images/Doc 1.jpg";
-import DocImage2 from "../Images/Doc 2.jpg";
 import { Button } from "../Buttons";
+import SearchBar from "../SearchBar";
+import DoctorData from "../DoctorData.json";
+import Card from "../Card";
+import { collection, getDocs } from "firebase/firestore";
+import { db } from "../../config/Firebase-config";
 
-class Home extends Component {
-  render() {
-    return (
+
+
+function Home() {
+  
+  const [topDoctors, setTopDoctors] = useState([]);
+  const topDoctorsCollectionRef = collection(db, "top-search-doctors");
+
+  useEffect(() => {
+    const getTopDoctors = async () => {
+      const data = await getDocs(topDoctorsCollectionRef);
+      setTopDoctors(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+      
+    };
+
+    getTopDoctors();
+  }, []);
+
+  return (
+    <>
+      <div className="searchbar">
+        <h1>Find yourself a Doctor</h1>
+        <SearchBar placeholder="Enter Here..." data={DoctorData} />
+      </div>
+      <div className="top-search">
+        <div className="text-mostSearchDoctors">
+          <h1>TOP SEARCHED DOCTORS</h1>
+          <h1>
+            ______________________________________________________________________
+          </h1>
+        </div>
+      </div>
+      <div className="cards">
+        {topDoctors.map((doctor) => {
+          
+          return (
+            <a href="/docprofile" target="_blank">
+              <Card 
+                bordred={false}
+                style={{ width: "300px" }}
+                cover={<img src={doctor.image} />}
+                title={
+                  <div style={{ display: "flex", justifyContent: "center" }}>
+                    <h4>
+                      {" "}
+                      {doctor.name}
+                      {<br />}
+                      {<br />}
+                      {doctor.description}
+                      {<br />}
+                      {<br />}
+                      Contact: {doctor.number}
+                      {<br />}
+                    </h4>
+                  </div>
+                }
+              ></Card>
+            </a>
+          );
+        })}
+      </div>
       <div className="mainDiv">
         {/* First Part  */}
         <div className="mainbanner">
-          <img className="Docimage1" src={DocImage1} alt="not found" />
-          <div className="text-div1">
-            <h1>GET STARTED</h1>
-            <h2>Find yourself a Doctor</h2>
-            <a href="/signin">
-              <Button>Sign In</Button>
-            </a>
-          </div>
+          <img
+            className="Docimage1"
+            src="https://firebasestorage.googleapis.com/v0/b/medicnet-schal123.appspot.com/o/Doc%201.jpg?alt=media&token=6d04ac9e-c0cc-49b1-b306-7b922292272a"
+            alt="not found"
+          />
+          <p>
+            I remember the feeling of joy, almost to tears, the day I discharged
+            my first patient from the hospital and the tears that I can never
+            hold back during the miracle of birth. That feeling is reward for
+            our hard work here [in medical school] and in years that follow... I
+            can't imagine being a doctor without it... I ask you to recall the
+            vigor and happiness of our youths and then, imagine the beauty of
+            that energy channeled into the care of another human being
+          </p>
         </div>
         {/* Second Part */}
         <div className="mainbanner">
@@ -30,7 +96,11 @@ class Home extends Component {
             engage the users. To ensure everything is as clear as possible,
             there are links in the text that lead to even more information.
           </p>
-          <img className="Docimage2" src={DocImage2} alt="not found" />
+          <img
+            className="Docimage2"
+            src="https://firebasestorage.googleapis.com/v0/b/medicnet-schal123.appspot.com/o/Doc%202.jpg?alt=media&token=f6880f40-91a5-4165-9797-8e4ec93d0f9b"
+            alt="not found"
+          />
         </div>
         {/* Third Part */}
         <div className="mainbanner">
@@ -53,8 +123,8 @@ class Home extends Component {
           </div>
         </div>
       </div>
-    );
-  }
+    </>
+  );
 }
 
 export default Home;

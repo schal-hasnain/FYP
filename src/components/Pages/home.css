@@ -1,6 +1,4 @@
-body{
-  background-color: rgb(252, 251, 214);
-}
+
 .mainDiv{
  max-width: 100%;
  
@@ -20,22 +18,29 @@ body{
   font-style: bold;
 }
 .mainbanner h2{
-   margin-bottom: 5%;
+  max-width: 50%;
+  font-size: 1rem;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-style: bold;
 }
 .mainbanner p{
   max-width: 50%;
   font-size: 1rem;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-style: bold;
+  margin-left: 2%;
+  
 }
-
+.text-mostSearchDoctors{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
 .Docimage1{
-  max-width: 50%;
+  max-width: 40%;
   border: black;
   border-radius: 10rem;
-}
-.text-div1{
-  margin-left: 2%;
 }
 
 .second-banner{
@@ -45,4 +50,40 @@ body{
   max-width: 40%;
   border: black;
   border-radius: 50rem;
+}
+.searchbar{
+  margin-top: 5%;
+  margin-left: 30%;
+}
+.top-search{
+  max-width: 100%;
+  margin-top: 5%;
+  display: flex;
+  flex-wrap: wrap;
+ justify-content: center;
+ align-items: center;
+
+} 
+.text-div1{
+  margin-left: 2%;
+}
+.top-search h1{
+  font-size: 2rem;
+  font-family: Arial, Helvetica, sans-serif;
+  margin-left: 5%;
+}
+.cards{
+  max-width: 50%;
+  margin-top: 3%;
+  margin-left: 25%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+.cards :hover{
+  z-index: 0;
+  box-shadow: 0 8px 50px rbga(0,0,0,0.2);
+  transform: scale(1.01);
+
 }

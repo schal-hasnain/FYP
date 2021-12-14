@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import "../Pages/about.css";
 
-import Image from "../Images/image1.jpg";
 class About extends Component {
   render() {
     return (
@@ -37,7 +36,7 @@ class About extends Component {
             referenced and all the information found here is written and
             reviewed by medical experts.
           </p>
-          <img className="image1" src={Image} alt="not found" />
+          <img className="image1" src="https://firebasestorage.googleapis.com/v0/b/medicnet-schal123.appspot.com/o/image1.jpg?alt=media&token=99bd87ff-440b-4cd4-b6ee-c51cd685c049" alt="not found" />
         </div>
       </div>
     );

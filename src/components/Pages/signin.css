@@ -47,7 +47,7 @@
     color: black;
   }
   form a{
-      margin-left: 5%;
+      margin-left: 15%;
   }
   .formWord-login {
     width: 40%;
@@ -78,5 +78,82 @@
     margin-top: 10%;
     margin-left: 20%;
   }
-  
+  .google-loginbtn{
+    width: 200px;
+    height: 55px;
+    border: 0;
+    border-radius: 5px;
+    background-color: #ffffff;
+    -webkit-transition: 0.5s linear;
+    -o-transition: 0.5s linear;
+    transition: 0.5s linear;
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+    margin-top: 10%;
+    margin-left: 20%;
+    justify-content: center;
+  }button:hover {
+    background-color: unset;
+    border: 2px solid #e49504;
+    -webkit-transition: 0.5s linear;
+    -o-transition: 0.5s linear;
+    transition: 0.5s linear;
+    color: black;
+  }
+  .facebook-loginbtn{
+    width: 200px;
+    height: 55px;
+    border: 0;
+    border-radius: 5px;
+    background-color: #ffffff;
+    -webkit-transition: 0.5s linear;
+    -o-transition: 0.5s linear;
+    transition: 0.5s linear;
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+    margin-top: 10%;
+    margin-left: 20%;
+    justify-content: center;
+  }button:hover {
+    background-color: unset;
+    border: 2px solid #e49504;
+    -webkit-transition: 0.5s linear;
+    -o-transition: 0.5s linear;
+    transition: 0.5s linear;
+    color: black;
+  }
+  .twitter-loginbtn{
+    width: 200px;
+    height: 55px;
+    border: 0;
+    border-radius: 5px;
+    background-color:#ffffff;
+    -webkit-transition: 0.5s linear;
+    -o-transition: 0.5s linear;
+    transition: 0.5s linear;
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+    margin-top: 10%;
+    margin-left: 20%;
+    justify-content: center;
+  }button:hover {
+    background-color: unset;
+    border: 2px solid #e49504;
+    -webkit-transition: 0.5s linear;
+    -o-transition: 0.5s linear;
+    transition: 0.5s linear;
+    color: black;
+  }
+  .Error{
+    margin-bottom: 5%;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    display: flex;
+    color: red;
+    align-items: center;
+    justify-content: center;
+    border-radius: 1px;
+    border: rgb(0, 0, 0);
+    border-style:solid;
+  }
   

@@ -1,7 +1,14 @@
 import React, { Component } from "react";
+import { auth } from "../config/Firebase-config";
+
 import "./Navbar.css";
 import { Button } from "./Buttons";
-class Navbar extends Component {
+
+const signOut = () => {
+  auth.signOut();
+};
+
+class NavbarDashboard extends Component {
   state = { clicked: false };
 
   handleClick = () => {
@@ -38,12 +45,17 @@ class Navbar extends Component {
               Contact Us
             </a>
           </li>
+          <li>
+            <a className="nav-links" href="/feedback">
+              Feedback
+            </a>
+          </li>
         </ul>
-        <a href="/signin">
-          <Button>Sign In</Button>
-        </a>
+        <p>
+          <Button onClick={signOut}>Logout</Button>
+        </p>
       </nav>
     );
   }
 }
-export default Navbar;
+export default NavbarDashboard;
