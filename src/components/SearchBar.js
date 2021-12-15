@@ -2,8 +2,10 @@ import React, { useState } from "react";
 import "./searchBar.css"
 import SearchIcon from "@material-ui/icons/Search";
 import CloseIcon from "@material-ui/icons/Close";
+import {  useHistory } from 'react-router-dom';
 
 function SearchBar({ placeholder, data }) {
+  let history = useHistory();
   const [filteredData, setFilteredData] = useState([]);
   const [wordEntered, setWordEntered] = useState("");
 
@@ -11,7 +13,7 @@ function SearchBar({ placeholder, data }) {
     const searchWord = event.target.value;
     setWordEntered(searchWord);
     const newFilter = data.filter((object) => {
-      return object.title.toLowerCase().includes(searchWord.toLowerCase());
+      return object.description.toLowerCase().includes(searchWord.toLowerCase());
     });
 
     if (searchWord === "") {
@@ -47,9 +49,9 @@ function SearchBar({ placeholder, data }) {
         <div className="dataResult">
           {filteredData.slice(0, 15).map((value, key) => {
             return (
-              <a className="dataItem" href="/docprofile" target="_blank" rel="noreferrer">
-                <p>{value.title} </p>
-              </a>
+              <div className="dataItem" onClick={() => { history.push("/docprofile", { data: value }); }} target="_blank" >
+                <p>{value.speciality} </p>
+              </div>
             );
           })}
         </div>

@@ -46,9 +46,6 @@ class NavbarDashboard extends Component {
             </a>
           </li>
           <li>
-            <a className="nav-links" href="/feedback">
-              Feedback
-            </a>
           </li>
         </ul>
         <p>

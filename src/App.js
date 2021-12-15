@@ -28,11 +28,12 @@ function App() {
         <NavbarDashboard />
         <Switch>
           <Route path="/" exact component={Home} />
+          <Route path="/docprofile" component={DocProfile}/>
           <Route path="/about" component={About} />
           <Route path="/contactus" component={Contact} />
           <Route path="/signin" component={SignIn} />
           <Route path="/signup" component={SignUp} />
-          <Route path="/docprofile" component={DocProfile}/>
+          
           <Route />
         </Switch>
         <FooterContainer />
@@ -44,11 +45,12 @@ function App() {
         <Navbar />
         <Switch>
           <Route path="/" exact component={Home} />
+          <Route path="/docprofile" component={DocProfile}/>
           <Route path="/about" component={About} />
           <Route path="/contactus" component={Contact} />
           <Route path="/signin" component={SignIn} />
           <Route path="/signup" component={SignUp} />
-          <Route path="/docprofile" component={DocProfile}/>
+          
           <Route />
         </Switch>
         <FooterContainer />

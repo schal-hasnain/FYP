@@ -2,33 +2,35 @@ import React, { useState, useEffect } from "react";
 import "./home.css";
 import { Button } from "../Buttons";
 import SearchBar from "../SearchBar";
-import DoctorData from "../DoctorData.json";
-import Card from "../Card";
+// import DoctorData from "../DoctorData.json";
+import TopDoctors from "./TopDoctors"
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "../../config/Firebase-config";
 
 
 
+
 function Home() {
   
-  const [topDoctors, setTopDoctors] = useState([]);
-  const topDoctorsCollectionRef = collection(db, "top-search-doctors");
+  const [doctors, setDoctors] = useState([]);
+  
 
   useEffect(() => {
-    const getTopDoctors = async () => {
-      const data = await getDocs(topDoctorsCollectionRef);
-      setTopDoctors(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+    const doctorsCollectionRef = collection(db, "doctors");
+    const getDoctors = async () => {
+      const data = await getDocs(doctorsCollectionRef);
+      setDoctors(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
       
     };
 
-    getTopDoctors();
+    getDoctors();
   }, []);
 
   return (
     <>
       <div className="searchbar">
         <h1>Find yourself a Doctor</h1>
-        <SearchBar placeholder="Enter Here..." data={DoctorData} />
+        <SearchBar placeholder="Enter Here..." data={doctors} />
       </div>
       <div className="top-search">
         <div className="text-mostSearchDoctors">
@@ -38,35 +40,7 @@ function Home() {
           </h1>
         </div>
       </div>
-      <div className="cards">
-        {topDoctors.map((doctor) => {
-          
-          return (
-            <a href="/docprofile" target="_blank">
-              <Card 
-                bordred={false}
-                style={{ width: "300px" }}
-                cover={<img src={doctor.image} />}
-                title={
-                  <div style={{ display: "flex", justifyContent: "center" }}>
-                    <h4>
-                      {" "}
-                      {doctor.name}
-                      {<br />}
-                      {<br />}
-                      {doctor.description}
-                      {<br />}
-                      {<br />}
-                      Contact: {doctor.number}
-                      {<br />}
-                    </h4>
-                  </div>
-                }
-              ></Card>
-            </a>
-          );
-        })}
-      </div>
+     <TopDoctors/>
       <div className="mainDiv">
         {/* First Part  */}
         <div className="mainbanner">

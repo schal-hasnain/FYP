@@ -76,8 +76,8 @@ const  SignInWithFacebook =() => {
                   </div>
                 </form>
                 <div>
-                <p><button className="facebook-loginbtn" onClick={SignInWithFacebook} >Sign with Facebook <br/><img src="https://icons.iconarchive.com/icons/uiconstock/socialmedia/32/Facebook-icon.png" alt="not found"></img></button></p>
-                <p><button className="google-loginbtn" onClick={SignInWithGoogle} >Sign with Google <br/><img src="https://www.google.com/favicon.ico" alt="not found"></img></button></p> 
+                <p><button className="facebook-loginbtn" onClick={SignInWithFacebook} >Sign in with Facebook <br/><img src="https://icons.iconarchive.com/icons/uiconstock/socialmedia/32/Facebook-icon.png" alt="not found"></img></button></p>
+                <p><button className="google-loginbtn" onClick={SignInWithGoogle} >Sign in with Google <br/><img src="https://www.google.com/favicon.ico" alt="not found"></img></button></p> 
                 {/* <p><button className="twitter-loginbtn" >Sign with Twitter <br/><img src="https://icons.iconarchive.com/icons/limav/flat-gradient-social/32/Twitter-icon.png" alt="not found"></img></button></p> */}
               </div>
               </div>
