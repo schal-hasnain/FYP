@@ -49,7 +49,7 @@ function SearchBar({ placeholder, data }) {
         <div className="dataResult">
           {filteredData.slice(0, 15).map((value, key) => {
             return (
-              <div className="dataItem" onClick={() => { history.push("/docprofile", { data: value }); }} target="_blank" >
+              <div className="dataItem" onClick={() => { history.push("/searchDoctor", { data: value }); }} target="_blank" >
                 <p>{value.speciality} </p>
               </div>
             );

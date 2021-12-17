@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import "./home.css";
 import { Button } from "../Buttons";
 import SearchBar from "../SearchBar";
-// import DoctorData from "../DoctorData.json";
 import TopDoctors from "./TopDoctors"
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "../../config/Firebase-config";
