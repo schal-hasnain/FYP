@@ -37,7 +37,7 @@ const TopDoctors = () => {
                       {doctor.name}
                       {<br />}
                       {<br />}
-                      {doctor.description}
+                      {doctor.description.split("of certifications")[0]}
                       {<br />}
                       {<br />}
                       Contact: {doctor.number}

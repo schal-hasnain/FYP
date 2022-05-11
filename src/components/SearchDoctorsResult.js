@@ -51,10 +51,11 @@ function SearchDoctorsResult() {
                           </div>
                         }
                       ></Card>
+                      <br/><br/><br/>
                     </div>
-                  );
+                  );  
             }
-          
+            return "";
           
         })}
       </div>

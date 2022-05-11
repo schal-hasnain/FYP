@@ -12,7 +12,7 @@ class Navbar extends Component {
     return (
       <nav className="NavbarItems">
         <a className="navbar-logo" href="/">
-          <h1 style={{ color: "black" }}>
+          <h1 style={{ color: "white" }}>
             MedicNet{" "}
             <i className="fas fa-user-md" style={{ color: "white" }}></i>
           </h1>

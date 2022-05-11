@@ -4,8 +4,8 @@ export const Container = styled.div`
   padding: 80px 60px;
   background: linear-gradient(
     90deg,
-    rgb(176, 171, 219) 0%,
-    rgb(94, 90, 163) 100%);
+    rgb(59, 49, 235) 100%,
+    rgb(59, 49, 235) 100%);
   @media (max-width: 1000px) {
     padding: 70px 30px;
   }

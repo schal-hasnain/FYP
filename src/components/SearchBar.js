@@ -13,7 +13,7 @@ function SearchBar({ placeholder, data }) {
     const searchWord = event.target.value;
     setWordEntered(searchWord);
     const newFilter = data.filter((object) => {
-      return object.description.toLowerCase().includes(searchWord.toLowerCase());
+      return object.name.toLowerCase().includes(searchWord.toLowerCase());
     });
 
     if (searchWord === "") {
@@ -49,8 +49,8 @@ function SearchBar({ placeholder, data }) {
         <div className="dataResult">
           {filteredData.slice(0, 15).map((value, key) => {
             return (
-              <div className="dataItem" onClick={() => { history.push("/searchDoctor", { data: value }); }} target="_blank" >
-                <p>{value.speciality} </p>
+              <div className="dataItem" onClick={() => { history.push("/docprofile", { data: value }); }} target="_blank" >
+                <p>{value.name} </p>
               </div>
             );
           })}

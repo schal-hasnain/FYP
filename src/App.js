@@ -11,7 +11,8 @@ import SignUp from "./components/Pages/SignUp";
 import NavbarDashboard from "./components/Navbar-Dashboard";
 import { auth } from "./config/Firebase-config";
 import DocProfile from "./components/Pages/DocProfile";
-import SearchDoctors from "./components/SearchDoctorsResult"
+import SearchDoctors from "./components/SearchDoctorsResult";
+import Sign2 from "./sign2";
 
 function App() {
   const [isUserSignedIn, setIsUserSignedIn] = useState(false);
@@ -32,7 +33,7 @@ function App() {
           <Route path="/docprofile" component={DocProfile}/>
           <Route path="/about" component={About} />
           <Route path="/contactus" component={Contact} />
-          <Route path="/signin" component={SignIn} />
+          <Route path="/signin" component={Sign2} />
           <Route path="/signup" component={SignUp} />
           <Route path="/searchDoctor" component={SearchDoctors}/> 
           
@@ -50,7 +51,7 @@ function App() {
           <Route path="/docprofile" component={DocProfile}/>
           <Route path="/about" component={About} />
           <Route path="/contactus" component={Contact} />
-          <Route path="/signin" component={SignIn} />
+          <Route path="/signin" component={Sign2} />
           <Route path="/signup" component={SignUp} />
           <Route path="/searchDoctor" component={SearchDoctors}/> 
           
