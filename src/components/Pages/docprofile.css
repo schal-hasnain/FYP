@@ -1,17 +1,33 @@
 .mainContainer{
-    display: flex;
+    display:flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
     margin-top: 10%;
-    margin-bottom: 10%;
+    margin-bottom: 2%;
     margin-left: 10%;
 }
-.details{
-    display: flex;
-    flex-wrap: wrap;
-} 
+.contactme {
+    width: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 
+  }
+  .contactOverlay {
+    width: 100%;
+    padding-bottom: 10%;
+  }
+.details{
+    display:flex;
+    flex-wrap:wrap;
+} 
+.textareabtn form {
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    overflow: hidden;
+  }
 .details h1{
     margin-top: 5%;
     font-style: normal;
@@ -35,5 +51,68 @@
     padding-right:5%;
 }
 .rating{
-    margin-top: 5%;
+    margin-left: 70%;
 }
+.textareabtn  textarea {
+    width: 80%;
+    margin-bottom: 2.5%;
+    border: 0;
+    margin-top: 2%;
+    height: 200px;
+    color: black;
+    -webkit-box-shadow: 0px 0px 48px 0px rgb(218, 218, 218);
+    box-shadow: 0px 0px 48px 0px rgb(218, 218, 218);
+    resize: none;
+  }
+  .textareabtn button {
+    width: 150px;
+    height: 50px;
+    border: 0;
+    border-radius: 5px;
+    background-color: #001517;
+    -webkit-transition: 0.5s linear;
+    -o-transition: 0.5s linear;
+    transition: 0.5s linear;
+    color: white;
+    font-weight: bold;
+    margin-top: 10%;
+  }
+  .textareabtn button:hover {
+    background-color: unset;
+    border: 2px solid #e49504;
+    -webkit-transition: 0.5s linear;
+    -o-transition: 0.5s linear;
+    transition: 0.5s linear;
+    color: black;
+  }
+  .textareabtn input {
+    width: 100%;
+    height: 50px;
+    margin-bottom: 10%;
+    border: 0;
+    margin-top: 2%;
+    padding-left: 3%;
+    background: #ffffff;
+    -webkit-box-shadow: 0px 0px 48px 0px rgb(218, 218, 218);
+    box-shadow: 0px 0px 48px 0px rgb(218, 218, 218);
+  }
+  .Reviews h1 {
+    font-size: 35px;
+    font-weight: bold;
+    font-family: "Josefin Sans", sans-serif;
+    margin-left: 10%;
+  }
+  .textareabtn{
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    overflow: hidden;
+    border-radius: 20px;
+  }
+  .Reviews{
+      display: inline;
+      justify-content: center;
+      align-items: center;
+
+  }
+  

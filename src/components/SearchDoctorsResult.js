@@ -30,7 +30,7 @@ function SearchDoctorsResult() {
     return (
         <div className="cards" >
         {doctors.map((doctor) => {
-            if (doctor.speciality === searchWord)
+            if (doctor.speciality === searchWord )
             {
                 return (
             

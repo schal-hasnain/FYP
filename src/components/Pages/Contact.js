@@ -1,5 +1,5 @@
 import React from "react";
-import "../Pages/contact.css";
+import "../Pages/Contact.css";
 import emailjs from 'emailjs-com';
 // import { auth } from "../../config/Firebase-config";
 // import { useHistory } from "react-router-dom";

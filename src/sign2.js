@@ -19,7 +19,7 @@ function App() {
     
     <AppContainer>
       <div className="mainDivLoginn">
-      <img className="imgLogin" src={LoginImage}></img>
+      <img className="imgLogin" src={LoginImage} alt=""></img>
       <AccountBox />
       </div>
      

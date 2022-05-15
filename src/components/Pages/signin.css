@@ -15,6 +15,12 @@
     justify-content: center;
     
   }
+  .googlefb-btn{
+    display: flex;
+    justify-content: center;
+    margin-right: 30%;
+    margin-bottom: 10%;
+  }
   .form-login {
     width: 50%;
     display: -webkit-box;
@@ -44,7 +50,7 @@
     -webkit-transition: 0.5s linear;
     -o-transition: 0.5s linear;
     transition: 0.5s linear;
-    color: black;
+    color: rgb(59, 49, 235);
   }
   form a{
       margin-left: 15%;
@@ -69,7 +75,7 @@
     height: 55px;
     border: 0;
     border-radius: 5px;
-    background-color: #001517;
+    background-color:rgb(59, 49, 235);
     -webkit-transition: 0.5s linear;
     -o-transition: 0.5s linear;
     transition: 0.5s linear;
