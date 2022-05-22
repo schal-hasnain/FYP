@@ -16,7 +16,7 @@ const SignUp = () => {
     createUserWithEmailAndPassword(auth,emailRef.current.value,psdRef.current.value)
     .then(e => history.push("/"))
     .catch((error) =>{
-      const errorCode = error.code;
+      const errorCode = error.code.split("auth/")[1];
       setErrorMessage(errorCode);
       console.log(errorCode);   
     });
@@ -29,9 +29,9 @@ const SignUp = () => {
           <div class="LoginOverlay">
             <div class="logincontainer">
               <div class="form-login">
-                <form action="" onSubmit="">
+                <form action="" onSubmit={onSubmit}>
                   <div class="formWord-login">
-                  {errorMessage !== "" ? <div className="Error">{errorMessage}</div>: null}
+                  {errorMessage !== "" ? <div className="Error">{errorMessage.toUpperCase()}</div>: null}
                     <span>Full Name</span>
                     <br />
                     <input
@@ -58,7 +58,7 @@ const SignUp = () => {
                       required
                     />
                     <br />
-                    <button className="loginbtn" onClick={onSubmit}>Register</button>
+                    <button className="loginbtn" >Register</button>
                   </div>
                 </form>
               </div>

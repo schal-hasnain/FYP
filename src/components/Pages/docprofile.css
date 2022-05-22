@@ -53,6 +53,10 @@
 .rating{
     margin-left: 70%;
 }
+.map-image{
+  width: 140%;
+  margin-left: 100%;
+}
 .textareabtn  textarea {
     width: 80%;
     margin-bottom: 2.5%;

@@ -2,11 +2,11 @@ import React, { useState, useEffect } from "react";
 import "./docprofile.css";
 import { useLocation } from "react-router-dom";
 import { useHistory } from "react-router-dom";
-import { Button } from "../Buttons";
-// import Rating from "../Rating";
+import Rating from "../Rating";
 import Card from "../Card";
 import { db, auth } from "../../config/Firebase-config";
 import { collection, getDocs } from "firebase/firestore";
+import MapImage from '../../images/Map.JPG'
 
 function DocProfile() {
   const location = useLocation();
@@ -24,10 +24,10 @@ function DocProfile() {
     setIsUserSignedIn(false);
   });
 
-  const handleSubmit = event => {
+  const handleSubmit = (event) => {
     event.preventDefault();
-
-    alert('Review Submitted ✅');
+    alert("Review Submitted ✅");
+    window.location.reload();
   };
   useEffect(() => {
     const doctorsCollectionRef = collection(db, "doctors");
@@ -46,19 +46,17 @@ function DocProfile() {
           <div className="details">
             <img className="doc-avatar" src={data.image} alt="error"></img>
             <div className="text-view">
+            <a href={data.location} target="_blank" rel="noreferrer">
+                <img className="map-image" src={MapImage} alt="error"></img>
+              </a>
               <h1>{data.name}</h1>
               <br />
+              
               <h2>{data.speciality}</h2>
               <br />
               <br />
               <h2>Contact: {data.number}</h2>
               <br />
-              <a href={data.location} target="_blank" rel="noreferrer">
-                <Button>Address</Button>
-              </a>
-              {/* <div className="rating">
-                <Rating />
-              </div> */}
             </div>
             <div className="recommendedDoctors">
               <h1>Doctors Description</h1>
@@ -116,6 +114,9 @@ function DocProfile() {
           <div className="details">
             <img className="doc-avatar" src={data.image} alt="error"></img>
             <div className="text-view">
+            <a href={data.location} target="_blank" rel="noreferrer">
+                <img className="map-image" src={MapImage} alt="error"></img>
+              </a>
               <h1>{data.name}</h1>
               <br />
               <h2>{data.speciality}</h2>
@@ -123,13 +124,9 @@ function DocProfile() {
               <br />
               <h2>Contact: {data.number}</h2>
               <br />
-              <a href={data.location} target="_blank" rel="noreferrer">
-                <Button>Address</Button>
-              </a>
             </div>
             <div className="recommendedDoctors">
               <h1>Doctors Description</h1>
-
               <h3>{data.description}</h3>
             </div>
           </div>
@@ -194,10 +191,9 @@ function DocProfile() {
                       required
                     />
                     <br />
-                    <span>Phone Number</span>
-                    <br />
-                    <input class="input100" type="text" name="phone" required />
-                   
+                    <span>Rating</span>
+                    <br /> <br />
+                    <Rating />
                   </div>
                   <div class="formWord">
                     <span>Review</span>
