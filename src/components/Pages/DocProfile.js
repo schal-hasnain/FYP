@@ -5,8 +5,9 @@ import { useHistory } from "react-router-dom";
 import Rating from "../Rating";
 import Card from "../Card";
 import { db, auth } from "../../config/Firebase-config";
-import { collection, getDocs } from "firebase/firestore";
+import { addDoc, collection, getDocs } from "firebase/firestore";
 import MapImage from '../../images/Map.JPG'
+import { async } from "@firebase/util";
 
 function DocProfile() {
   const location = useLocation();
@@ -14,7 +15,10 @@ function DocProfile() {
   const { data } = location.state;
   const [doctors, setDoctors] = useState([]);
   const [reviews, setReviews] = useState([]);
+  const [name, setName] = useState([]);
+  const [userreview, setUserreview] = useState([]);
   const searchWord = data.speciality;
+  const doctId = data.docId;
 
   const [isUserSignedIn, setIsUserSignedIn] = useState(false);
   auth.onAuthStateChanged((user) => {
@@ -25,9 +29,17 @@ function DocProfile() {
     setIsUserSignedIn(false);
   });
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    alert("Review Submitted ✅");
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    // console.log(name,userreview,data.docId)
+    await addDoc(collection(db,"appreviews"),{
+      name:name,
+      review:userreview,
+      docId:doctId
+    }).then(
+      alert("Review Submitted ✅")
+    )
+   
     window.location.reload();
   };
   useEffect(() => {
@@ -46,6 +58,8 @@ function DocProfile() {
 
     };
     getReviews();
+   
+
   }, []);
 
   if (isUserSignedIn === false) {
@@ -55,9 +69,6 @@ function DocProfile() {
           <div className="details">
             <img className="doc-avatar" src={data.image} alt="error"></img>
             <div className="text-view">
-              <a href={data.location} target="_blank" rel="noreferrer">
-                <img className="map-image" src={MapImage} alt="error"></img>
-              </a>
               <h1>{data.name}</h1>
               <br />
 
@@ -65,6 +76,9 @@ function DocProfile() {
               <br />
               <br />
               <h2>Contact: {data.number}</h2>
+              <a href={data.location} target="_blank" rel="noreferrer">
+                <img className="map-image" src={MapImage} alt="error"></img>
+              </a>
               <br />
             </div>
             <div className="recommendedDoctors">
@@ -123,15 +137,15 @@ function DocProfile() {
           <div className="details">
             <img className="doc-avatar" src={data.image} alt="error"></img>
             <div className="text-view">
-              <a href={data.location} target="_blank" rel="noreferrer">
-                <img className="map-image" src={MapImage} alt="error"></img>
-              </a>
               <h1>{data.name}</h1>
               <br />
               <h2>{data.speciality}</h2>
               <br />
               <br />
               <h2>Contact: {data.number}</h2>
+              <a href={data.location} target="_blank" rel="noreferrer">
+                <img className="map-image" src={MapImage} alt="error"></img>
+              </a>
               <br />
             </div>
             <div className="recommendedDoctors">
@@ -188,9 +202,10 @@ function DocProfile() {
           <h1>Reviews</h1>
           
             {reviews.map((review) => {
+              if(review.docId === doctId)
              return(
               <div className="reviews-container">
-              <h5>Email: {review.userEmail} <br/><br/>
+              <h5>Name: {review.name} <br/><br/>
               {review.review}</h5>
               </div>
              )
@@ -201,7 +216,7 @@ function DocProfile() {
           <div class="contactOverlay">
             <div class="container">
               <div class="form">
-                <form action="" onSubmit={handleSubmit}>
+                <form action="" >
                   <div class="formWord">
                     <h2>Review</h2>
                     <span>Full Name</span>
@@ -210,6 +225,7 @@ function DocProfile() {
                       class="input100"
                       type="text"
                       name="fullName"
+                      onChange={(e) => {setName(e.target.value)}}
                       required
                     />
                     <br />
@@ -220,9 +236,9 @@ function DocProfile() {
                   <div class="formWord">
                     <span>Review</span>
                     <br />
-                    <textarea name="message" required></textarea>
+                    <textarea onChange={(e) => {setUserreview(e.target.value)}} name="message" required></textarea>
                     <br />
-                    <button>SUBMIT</button>
+                    <button onClick={handleSubmit}>SUBMIT</button>
                   </div>
                 </form>
               </div>
