@@ -13,6 +13,7 @@ function DocProfile() {
   let history = useHistory();
   const { data } = location.state;
   const [doctors, setDoctors] = useState([]);
+  const [reviews, setReviews] = useState([]);
   const searchWord = data.speciality;
 
   const [isUserSignedIn, setIsUserSignedIn] = useState(false);
@@ -37,6 +38,14 @@ function DocProfile() {
     };
 
     getDoctors();
+
+    const reviewsCollectionRef = collection(db, "appreviews")
+    const getReviews = async () => {
+      const data = await getDocs(reviewsCollectionRef);
+      setReviews(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+
+    };
+    getReviews();
   }, []);
 
   if (isUserSignedIn === false) {
@@ -46,12 +55,12 @@ function DocProfile() {
           <div className="details">
             <img className="doc-avatar" src={data.image} alt="error"></img>
             <div className="text-view">
-            <a href={data.location} target="_blank" rel="noreferrer">
+              <a href={data.location} target="_blank" rel="noreferrer">
                 <img className="map-image" src={MapImage} alt="error"></img>
               </a>
               <h1>{data.name}</h1>
               <br />
-              
+
               <h2>{data.speciality}</h2>
               <br />
               <br />
@@ -114,7 +123,7 @@ function DocProfile() {
           <div className="details">
             <img className="doc-avatar" src={data.image} alt="error"></img>
             <div className="text-view">
-            <a href={data.location} target="_blank" rel="noreferrer">
+              <a href={data.location} target="_blank" rel="noreferrer">
                 <img className="map-image" src={MapImage} alt="error"></img>
               </a>
               <h1>{data.name}</h1>
@@ -174,6 +183,19 @@ function DocProfile() {
             }
             return "";
           })}
+        </div>
+        <div className="Reviews">
+          <h1>Reviews</h1>
+          
+            {reviews.map((review) => {
+             return(
+              <div className="reviews-container">
+              <h5>Email: {review.userEmail} <br/><br/>
+              {review.review}</h5>
+              </div>
+             )
+            })}
+        
         </div>
         <div class="contactme" id="contact">
           <div class="contactOverlay">

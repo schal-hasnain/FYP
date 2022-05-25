@@ -57,6 +57,13 @@
   width: 140%;
   margin-left: 100%;
 }
+.reviews-container{
+  margin-left: 10%;
+  margin-top: 2%;
+  background-color: #ffffff;
+  padding: 2%;
+  margin-right: 10%;
+}
 .textareabtn  textarea {
     width: 80%;
     margin-bottom: 2.5%;
