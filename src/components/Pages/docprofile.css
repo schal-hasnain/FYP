@@ -3,7 +3,7 @@
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  /* margin-top: 10%; */
+  margin-top: 5%;
   margin-bottom: 2%;
   margin-left: 10%;
 }
@@ -35,14 +35,16 @@
   font-size: 2rem;
 }
 .doc-avatar{
+  margin-top: 5%;
+  height: 12%;
   margin-left: 10%;
-  max-width: 20%;
+  max-width: 12%;
   
 }
 .text-view{
   max-width: 21%;
   margin-top: 5%;
-  margin-left: 5%;
+  margin-left: 2%;
   display: block;
 }
 .details h3{
@@ -55,8 +57,8 @@
   margin-left: 70%;
 }
 .map-image{
-width: 140%;
-margin-left: 100%;
+width: 100%;
+/* margin-left: 100%; */
 }
 .reviews-container{
 margin-left: 10%;

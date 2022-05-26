@@ -143,6 +143,8 @@ function DocProfile() {
               <br />
               <br />
               <h2>Contact: {data.number}</h2>
+              <br/>
+              <br/>
               <a href={data.location} target="_blank" rel="noreferrer">
                 <img className="map-image" src={MapImage} alt="error"></img>
               </a>
