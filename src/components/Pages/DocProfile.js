@@ -6,8 +6,10 @@ import Rating from "../Rating";
 import Card from "../Card";
 import { db, auth } from "../../config/Firebase-config";
 import { addDoc, collection, getDocs } from "firebase/firestore";
-import MapImage from '../../images/Map.JPG'
+import MapImage from "../../images/Map.JPG";
 import { async } from "@firebase/util";
+import ratingAvatar from "../../images/profile.png";
+
 
 function DocProfile() {
   const location = useLocation();
@@ -32,14 +34,12 @@ function DocProfile() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     // console.log(name,userreview,data.docId)
-    await addDoc(collection(db,"appreviews"),{
-      name:name,
-      review:userreview,
-      docId:doctId
-    }).then(
-      alert("Review Submitted ✅")
-    )
-   
+    await addDoc(collection(db, "appreviews"), {
+      name: name,
+      review: userreview,
+      docId: doctId,
+    }).then(alert("Review Submitted ✅"));
+
     window.location.reload();
   };
   useEffect(() => {
@@ -51,15 +51,12 @@ function DocProfile() {
 
     getDoctors();
 
-    const reviewsCollectionRef = collection(db, "appreviews")
+    const reviewsCollectionRef = collection(db, "appreviews");
     const getReviews = async () => {
       const data = await getDocs(reviewsCollectionRef);
       setReviews(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
-
     };
     getReviews();
-   
-
   }, []);
 
   if (isUserSignedIn === false) {
@@ -71,11 +68,15 @@ function DocProfile() {
             <div className="text-view">
               <h1>{data.name}</h1>
               <br />
-
-              <h2>{data.speciality}</h2>
+              <h2>Speciality: {data.speciality}</h2>
+              <br />
+              <br />
+              <h2>Timings: {data.timings}</h2>
               <br />
               <br />
               <h2>Contact: {data.number}</h2>
+              <br />
+              <br />
               <a href={data.location} target="_blank" rel="noreferrer">
                 <img className="map-image" src={MapImage} alt="error"></img>
               </a>
@@ -139,12 +140,15 @@ function DocProfile() {
             <div className="text-view">
               <h1>{data.name}</h1>
               <br />
-              <h2>{data.speciality}</h2>
+              <h2>Speciality: {data.speciality}</h2>
+              <br />
+              <br />
+              <h2>Timings: {data.timings}</h2>
               <br />
               <br />
               <h2>Contact: {data.number}</h2>
-              <br/>
-              <br/>
+              <br />
+              <br />
               <a href={data.location} target="_blank" rel="noreferrer">
                 <img className="map-image" src={MapImage} alt="error"></img>
               </a>
@@ -202,23 +206,26 @@ function DocProfile() {
         </div>
         <div className="Reviews">
           <h1>Reviews</h1>
-          
-            {reviews.map((review) => {
-              if(review.docId === doctId)
-             return(
-              <div className="reviews-container">
-              <h5>Name: {review.name} <br/><br/>
-              {review.review}</h5>
-              </div>
-             )
-            })}
-        
+
+          {reviews.map((review) => {
+            if (review.docId === doctId)
+              return (
+                <div className="reviews-container">
+                  <div className="review-name-avatar">
+                    <img className="rating-avatar" src={ratingAvatar}></img>
+                    <h5>Name: {review.name}</h5>
+                  </div>
+                  <h5>Comment: {review.review}</h5>
+                  <h2>&#9733;&#9733;&#9733;&#9733;&#9733;</h2>
+                </div>
+              );
+          })}
         </div>
         <div class="contactme" id="contact">
           <div class="contactOverlay">
             <div class="container">
               <div class="form">
-                <form action="" >
+                <form action="">
                   <div class="formWord">
                     <h2>Review</h2>
                     <span>Full Name</span>
@@ -227,7 +234,9 @@ function DocProfile() {
                       class="input100"
                       type="text"
                       name="fullName"
-                      onChange={(e) => {setName(e.target.value)}}
+                      onChange={(e) => {
+                        setName(e.target.value);
+                      }}
                       required
                     />
                     <br />
@@ -238,7 +247,13 @@ function DocProfile() {
                   <div class="formWord">
                     <span>Review</span>
                     <br />
-                    <textarea onChange={(e) => {setUserreview(e.target.value)}} name="message" required></textarea>
+                    <textarea
+                      onChange={(e) => {
+                        setUserreview(e.target.value);
+                      }}
+                      name="message"
+                      required
+                    ></textarea>
                     <br />
                     <button onClick={handleSubmit}>SUBMIT</button>
                   </div>
